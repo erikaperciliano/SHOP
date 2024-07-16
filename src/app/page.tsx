@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-    <h1>Starting the project</h1>
+    <h1>SHOP</h1>
   );
 }
