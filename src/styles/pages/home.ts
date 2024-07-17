@@ -44,13 +44,14 @@ export const Product = styled('div', {
         transition: 'all 0.2s ease-in-out',
 
         'strong': {
-            fontSize: '$lg'
+            fontSize: '$lg',
         },
 
         span: {
             fontSize: '$xl',
             fontWeight: 'bold',
-            color: '$green300'
+            color: '$green300',
+            padding: '0.5rem',
         }
 
     },
