@@ -13,6 +13,7 @@ import { stripe } from "@/lib/stripe"
 
 import 'keen-slider/keen-slider.min.css'
 import Stripe from "stripe"
+import { useCart } from "@/context/CartContext"
 
 interface HomeProps {
     products: {
@@ -31,6 +32,8 @@ export default function Home({ products }: HomeProps) {
         }
     })
 
+    const { addToCart } = useCart();
+
     return (
         <>
             <Head>
@@ -47,7 +50,7 @@ export default function Home({ products }: HomeProps) {
                                 <footer>
                                     <strong>{product.name}</strong>
                                     <span>{product.price}</span>
-                                    <Image src={BagIcon} alt=""/>
+                                    <Image src={BagIcon} alt="" onClick={() => addToCart(product)}/>
                                 </footer>
                             </Product>
                         </Link>
