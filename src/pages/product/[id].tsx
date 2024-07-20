@@ -8,6 +8,7 @@ import Image from "next/image"
 import axios from "axios"
 import { useState } from "react"
 import Head from "next/head"
+import { useCart } from "@/context/CartContext"
 
 interface ProductProps {
     product: {
@@ -22,6 +23,7 @@ interface ProductProps {
 
 export default function Product({ product }: ProductProps){
     const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false)
+    const { addToCart } = useCart(); // Uses the addToCart function from CartContext
 
     async function handleBuyProduct(){
         setIsCreatingCheckoutSession(true)
@@ -39,6 +41,17 @@ export default function Product({ product }: ProductProps){
             alert('Failed to redirect checkout')
         }
     }
+
+    function handleAddToCart() {
+        addToCart({
+          id: product.id,
+          name: product.name,
+          imageUrl: product.imageUrl,
+          price: product.price
+        });
+
+        console.log(product)
+      }
 
     return(
         <>
@@ -58,8 +71,8 @@ export default function Product({ product }: ProductProps){
                     <p>
                         {product.description}
                     </p>
-
-                    <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>Buy Now</button>
+                    <button disabled={isCreatingCheckoutSession} onClick={handleAddToCart}>Add to Cart</button>
+                    {/*<button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>Buy Now</button>*/}
                 </ProductDetails>
             </ProductContainer>
         </>
