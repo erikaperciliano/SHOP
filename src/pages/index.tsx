@@ -5,6 +5,8 @@ import Head from "next/head"
 
 import { HomeContainer, Product } from "@/styles/pages/home"
 
+import BagIcon from '@/assets/BagIcon.svg'
+
 import { useKeenSlider } from 'keen-slider/react'
 
 import { stripe } from "@/lib/stripe"
@@ -45,6 +47,7 @@ export default function Home({ products }: HomeProps) {
                                 <footer>
                                     <strong>{product.name}</strong>
                                     <span>{product.price}</span>
+                                    <Image src={BagIcon} alt=""/>
                                 </footer>
                             </Product>
                         </Link>

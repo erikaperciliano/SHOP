@@ -20,8 +20,16 @@ export const Product = styled('div', {
     alignItems: 'center',
     justifyContent: 'center',
 
+     'span ~ img': {
+            position: 'absolute',
+            top: '2rem',
+            right: '0.5rem',
+            display: 'flex',
+            alignItems: 'right',
+        },
+
     img: {
-        objectFit:'cover'
+        objectFit:'cover',
     },
 
     footer: {
@@ -34,8 +42,12 @@ export const Product = styled('div', {
         borderRadius: 6,
 
         display: 'flex',
-        alignItems: 'center',
+        //alignItems: 'left',
         justifyContent: 'space-btween',
+
+        flexDirection: 'column', // Change to column direction
+        gap: '0.5rem', // Add gap between elements
+        alignItems: 'flex-start', // Align items to the left
 
         backgroundColor: 'rgba(0, 0, 0, 0.6)',
 
@@ -45,7 +57,9 @@ export const Product = styled('div', {
 
         'strong': {
             fontSize: '$lg',
-            color: '$gray100'
+            color: '$gray100',
+            width: '50%',
+            whiteSpace: 'nowrap'
         },
 
         span: {
@@ -53,6 +67,7 @@ export const Product = styled('div', {
             fontWeight: 'bold',
             color: '$green300',
             padding: '0.5rem',
+            whiteSpace: 'nowrap'
         }
 
     },
