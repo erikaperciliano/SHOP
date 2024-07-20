@@ -49,8 +49,6 @@ export default function Product({ product }: ProductProps){
           imageUrl: product.imageUrl,
           price: product.price
         });
-
-        console.log(product)
       }
 
     return(

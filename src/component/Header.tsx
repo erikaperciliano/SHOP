@@ -7,13 +7,16 @@ import logoImg from '../assets/logo.svg';
 
 import { BagImageContainer, Header as HeaderStyled } from "@/styles/pages/header";
 import { useCart } from "@/context/CartContext";
+import Link from "next/link";
 
 export function Header(){
     const { cartCount } = useCart();
 
     return (
         <HeaderStyled>
-            <Image src={logoImg} alt="" />
+            <Link href='/'>
+                <Image src={logoImg} alt="" />
+            </Link>
             <BagImageContainer>
                 <Image src={BagIcon} alt=""/>
                 {cartCount > 0 && <span>{cartCount}</span>}
