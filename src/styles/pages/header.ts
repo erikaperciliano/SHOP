@@ -17,6 +17,8 @@ export const BagImageContainer = styled('div', {
     alignItems: 'flex-end', // Align content to the right
     justifyContent: 'center',
 
+    cursor: 'pointer',
+
     'img:last-child': {
         position: 'relative', // Remove absolute position for bag icon
         display: 'block', // Make sure the icon is not flex-styled
