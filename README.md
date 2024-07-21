@@ -2,6 +2,10 @@
 
 This is a web application for purchasing multiple products.
 
+# Demonstration
+
+[demostration shop.webm](https://github.com/user-attachments/assets/949dd73f-a8cd-4ff8-a1d2-540e9430d9f8)
+
 ### 📋 Running the project
 
 ```
