@@ -25,29 +25,14 @@ export default function Product({ product }: ProductProps){
     const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false)
     const { addToCart } = useCart(); // Uses the addToCart function from CartContext
 
-    async function handleBuyProduct(){
-        setIsCreatingCheckoutSession(true)
-
-        try{
-            const response = await axios.post('/api/checkout', {
-                priceId: product.defaultPriceId
-            })
-
-            const { checkoutUrl } = response.data;
-            
-            window.location.href = checkoutUrl
-        }catch(err){
-            setIsCreatingCheckoutSession(false)
-            alert('Failed to redirect checkout')
-        }
-    }
 
     function handleAddToCart() {
         addToCart({
           id: product.id,
           name: product.name,
           imageUrl: product.imageUrl,
-          price: product.price
+          price: product.price,
+          defaultPriceId: product.defaultPriceId,
         });
       }
 
@@ -70,7 +55,6 @@ export default function Product({ product }: ProductProps){
                         {product.description}
                     </p>
                     <button disabled={isCreatingCheckoutSession} onClick={handleAddToCart}>Add to Cart</button>
-                    {/*<button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>Buy Now</button>*/}
                 </ProductDetails>
             </ProductContainer>
         </>
@@ -80,7 +64,6 @@ export default function Product({ product }: ProductProps){
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // Search for best-selling products
-
     return {
         paths: [
             { params: { id: 'prod_QUXg4cfQ2G7NLc' }}
