@@ -1,4 +1,4 @@
-# SHOP - Web App
+# 💰 SHOP - Web App
 
 This is a web application for purchasing multiple products.
 
